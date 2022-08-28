@@ -2,6 +2,9 @@
 
 body{
     background-color: #F3F3F3;
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+    font-weight: 400;
 }
 .conteudo{
     width: 100%;
@@ -50,14 +53,44 @@ body{
     width: 80%;
     border: 0;
     font-size: 18px;
-    font-family: 'Roboto', sans-serif;
-    color: #000000;
-    font-weight: 400;
     font-style: italic;
     line-height: 21.09px;
     margin-left: 17px;
 }
 .mensagens{
-    margin-top: 80px;
+    margin-top: 106px;
     margin-bottom: 80px;
+}
+
+.status{
+    font-size: 14px;
+    background-color: #AAAAAA;
+    border-radius: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 4px;
+}
+
+.reservadas{
+    font-size: 14px;
+    background-color: #FFDEDE;
+    border-radius: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 4px;
+}
+
+.normal{
+    font-size: 14px;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 4px;
 }
