@@ -2,6 +2,7 @@ let ul = document.querySelector('.espacoMensagens');
 let nomeDoUsuario;
 let nomeDoUsuarioObj;
 let enviarNome;
+let mandouNome = true;
 
 function nome(){
         nomeDoUsuario = prompt('Qual o seu lindo nome?')
@@ -17,19 +18,14 @@ function sucesso(){
     console.log('enviou!!!!');
 }
 function erro(erro){
-    mandouNome = false;
-    while (erro.response.status == 400){
-    nomeDoUsuario = prompt('Esse nome já está em uso. Escolha outro:');
-    nomeDoUsuarioObj = {
-        name: nomeDoUsuario
+    if (erro.response.status === 400){
+        alert('Esse nome já está em uso. Escolha outro!');
+        window.location.reload()
     }
-    enviarNome = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', nomeDoUsuarioObj)
-    enviarNome.then(sucesso);
-}
 }
 
 nome();
-enviarNome.catch(erro);
+
 function statusDoUsuario(){
     let enviarStatus = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', nomeDoUsuarioObj)
 }
@@ -75,9 +71,10 @@ function enviarMensagemDigitada(){
 
 
 function envioErro(){
-    console.log("Não foi possível enviar a mensagem")
+    alert("Não foi possível enviar a mensagem")
+    window.location.reload()
 }
 function envioSucesso(){
     console.log('mensagem enviada!!!')
-    window.location.reload()
+    mensagensDoServidor()
 }
