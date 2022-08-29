@@ -48,9 +48,16 @@ function pegarMensagem(conteudo){
 function mostraMensagem(elemento){
     //console.log(elemento.length)
     for (let i = 0; i < elemento.length; i++){
-        ul.innerHTML += `
+        if (elemento[i].to == nomeDoUsuario && elemento[i].type === "private_message"){
+            ul.innerHTML += `
+        <li class="${elemento[i].type}"> <span class="time">(${elemento[i].time})</span> <span class="bold">${elemento[i].from}</span> reservadamente para <span class="bold">${elemento[i].to}:</span> ${elemento[i].text} </li>
+        `
+        } if (elemento[i].type !== "private_message"){
+            ul.innerHTML += `
         <li class="${elemento[i].type}"> <span class="time">(${elemento[i].time})</span> <span class="bold">${elemento[i].from}</span> para <span class="bold">${elemento[i].to}:</span> ${elemento[i].text} </li>
         `
+        }
+        
     }
     let ultimaMensagem = ul.lastElementChild;
     ultimaMensagem.scrollIntoView();
@@ -67,8 +74,10 @@ function enviarMensagemDigitada(){
     mandarMsgServidor = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages',mensagemDigitadaObj)
     mandarMsgServidor.then(envioSucesso)
     mandarMsgServidor.catch(envioErro)
+    mensagemDigitada.value = ""
 }
 
+setInterval(mensagensDoServidor,3000);
 
 function envioErro(){
     alert("Não foi possível enviar a mensagem")
