@@ -21,6 +21,7 @@ body{
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
     position: fixed;
     top:0;
+    z-index: 1000;
 }
 .enviar{
     width: 100%;
@@ -32,6 +33,7 @@ body{
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
     position: fixed;
     bottom: 0;
+    z-index: 1000;
 }
 .logoPeq{
     margin-left: 22px;
@@ -50,7 +52,6 @@ body{
 }
 .campo{
     height: 30px;
-    width: 80%;
     border: 0;
     font-size: 18px;
     font-style: italic;
@@ -58,13 +59,15 @@ body{
     margin-left: 17px;
 }
 .mensagens{
+    width: 100%;
     margin-top: 106px;
-    margin-bottom: 80px;
+    margin-bottom: 84px;
 }
 
 .status{
+    width: 100%;
     font-size: 14px;
-    background-color: #AAAAAA;
+    background-color: #DCDCDC;
     border-radius: 2px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -73,7 +76,8 @@ body{
     margin-bottom: 4px;
 }
 
-.reservadas{
+.private_message{
+    width: 100%;
     font-size: 14px;
     background-color: #FFDEDE;
     border-radius: 2px;
@@ -84,7 +88,8 @@ body{
     margin-bottom: 4px;
 }
 
-.normal{
+.message{
+    width: 100%;
     font-size: 14px;
     background-color: #FFFFFF;
     border-radius: 2px;
@@ -93,4 +98,15 @@ body{
     padding-left: 8px;
     padding-right: 8px;
     margin-bottom: 4px;
+}
+
+.time{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #AAAAAA;
+}
+
+.bold{
+    font-weight: 700;
 }
