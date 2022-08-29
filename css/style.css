@@ -5,14 +5,15 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #F3F3F3;
     font-family: 'Roboto', sans-serif;
     color: #000000;
     font-weight: 400;
-}
-.conteudo{
+    position: relative;
     width: 100%;
     height: 100%;
+}
+.conteudo{
+    background-color: #F3F3F3;
 }
 
 .menu{
@@ -25,7 +26,7 @@ body{
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
     position: fixed;
     top:0;
-    z-index: 1000;
+    z-index: 10;
 }
 .enviar{
     width: 100%;
@@ -37,7 +38,7 @@ body{
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
     position: fixed;
     bottom: 0;
-    z-index: 1000;
+    z-index: 10;
 }
 .logoPeq{
     margin-left: 22px;
@@ -73,7 +74,7 @@ body{
     max-height: fit-content;
     overflow-y: hidden;
 }
-.mensagens::webkit::-webkit-scrollbar{
+::webkit::-webkit-scrollbar{
     display: none;
 }
 .status{
@@ -124,4 +125,59 @@ body{
 
 .bold{
     font-weight: 700;
+}
+
+.login{
+    position: absolute;
+    top: 0;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+.esconde{
+    display: none;
+}
+.aparece{
+    display: initial;
+}
+.alinhar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    justify-content: center;
+}
+button{
+    width: 109px;
+    height: 45px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #696969;
+    background-color: #E7E7E7;
+    border-radius: 9px;
+    border: 0;
+}
+
+.campoNome{
+    width: 261px;
+    height: 54px;
+    background-color: #FFFFFF;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.logoGrande{
+    width: 130px;
+    height: 92px;
+    margin-top: 72px;
+    margin-bottom: 94px;    
+}
+
+.campoNome::placeholder{
+    color: #AEAEAE;
 }

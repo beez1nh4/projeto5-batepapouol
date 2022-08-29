@@ -11,7 +11,7 @@
 <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-    <div class="conteudo">
+    <div class="conteudo esconde">
         <div class="menu">
             <img class="logoPeq" src="./logo 1.png" alt="">
             <ion-icon class="pessoinhas" name="people"></ion-icon>
@@ -26,6 +26,15 @@
             <input class="campo" placeholder="Escreva aqui..." type="text">
             <ion-icon class="envio" onclick="enviarMensagemDigitada()"name="paper-plane-outline"></ion-icon>
         </div>
+    </div>
+    <div class="login">
+        <div class="alinhar">
+            <img class="logoGrande" src="./logo 2.png" alt="">
+            <input class="campoNome" placeholder="Digite seu lindo nome" type="text">
+            <button class="entrada" onclick="nome();">Entrar</button>
+            <img class="esconde" src="./spinning.gif" alt="">
+        </div>
+        
     </div>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>

@@ -3,19 +3,35 @@ let nomeDoUsuario;
 let nomeDoUsuarioObj;
 let enviarNome;
 let mandouNome = true;
+let nomeDigitado;
+let mensagemDigitada;
 
 function nome(){
-        nomeDoUsuario = prompt('Qual o seu lindo nome?')
+        //nomeDoUsuario = prompt('Qual o seu lindo nome?')
+        nomeDigitado = document.querySelector('.campoNome');
+        nomeDoUsuario = nomeDigitado.value;
         nomeDoUsuarioObj = {
         name: nomeDoUsuario
     }
+    console.log(nomeDoUsuario)
+    console.log(nomeDoUsuarioObj)
+    enviarNomeComPost()
+}
+
+function enviarNomeComPost(){
     enviarNome = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', nomeDoUsuarioObj)
     enviarNome.then(sucesso);
     enviarNome.catch(erro);
 }
-    
+
 function sucesso(){
+    let divAlinhar = document.querySelector('.alinhar');
+    divAlinhar.children[1].classList.add('esconde');
+    divAlinhar.children[2].classList.add('esconde');
+    divAlinhar.children[3].classList.add('aparece');
+    divAlinhar.children[3].classList.remove('esconde');
     console.log('enviou!!!!');
+    setTimeout(ativar,1500);
 }
 function erro(erro){
     if (erro.response.status === 400){
@@ -23,20 +39,19 @@ function erro(erro){
         window.location.reload()
     }
 }
-
-nome();
+//nome();
 
 function statusDoUsuario(){
     let enviarStatus = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', nomeDoUsuarioObj)
 }
 
-setInterval(statusDoUsuario,5000);
+
 
 function mensagensDoServidor(){
     let mensagem = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
     mensagem.then(pegarMensagem)
 }
-mensagensDoServidor();
+//mensagensDoServidor();
 
 function pegarMensagem(conteudo){
     let elemento = conteudo.data;
@@ -64,7 +79,7 @@ function mostraMensagem(elemento){
 }
 
 function enviarMensagemDigitada(){
-    let mensagemDigitada = document.querySelector('.campo')
+    mensagemDigitada = document.querySelector('.campo')
     let mensagemDigitadaObj = {
         from: nomeDoUsuario,
         to: "Todos", //ou pessoa para bônus
@@ -76,8 +91,18 @@ function enviarMensagemDigitada(){
     mandarMsgServidor.catch(envioErro)
     mensagemDigitada.value = ""
 }
+//recarrega e mantem atualizado
+function ativar(){
+    let divConteudo = document.querySelector('.conteudo')
+    let divLogin = document.querySelector('.login')
+    divConteudo.classList.remove('esconde')
+    divConteudo.classList.add('aparece')
+    divLogin.classList.remove('aparece')
+    divLogin.classList.add('esconde')
+    setInterval(mensagensDoServidor,3000);
+    setInterval(statusDoUsuario,5000);
+}
 
-setInterval(mensagensDoServidor,3000);
 
 function envioErro(){
     alert("Não foi possível enviar a mensagem")
@@ -87,3 +112,18 @@ function envioSucesso(){
     console.log('mensagem enviada!!!')
     mensagensDoServidor()
 }
+
+//enter
+
+/*
+
+    document.addEventListener('keypress', function(evento){
+        if(evento.key === "Enter"){
+        let botao = document.querySelector('.envio');
+        botao.click();
+    });
+    }
+
+enterMensagem();
+
+*/
